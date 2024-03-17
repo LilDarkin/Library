@@ -1,15 +1,8 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+### Laravel [Backend] | Vue [Frontend] | Inertia | Tailwind [CSS]
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## About
 
-## About lara9interia
-
-It is a Laravel 9 Vue3 Inertia JS based demo project showing the basics of inertia js. Authentication, Authorization, Routing, form submittion and data binding. It will help begineers to understand "how to start with inertia JS". Build with love and passon and also its open source for web artisans.
+It is a Laravel 9 Vue3 Inertia JS based project template showing the basics of inertia js. Authentication, Authorization, Routing, form submittion and data binding. It will help begineers to understand "How to start with Inertia JS".
 
 1. Laravel 9
 2. Vue 3
@@ -20,11 +13,11 @@ It is a Laravel 9 Vue3 Inertia JS based demo project showing the basics of inert
 7. Authorization
 
 ## Getting Started Step by Step
-1. In your root folder, clone the project file using git clone https://github.com/rafi021/lara9inertia.git
+1. Clone the project file using git clone https://github.com/LilDarkin/Project-Template.git
 2. Open terminal (bash/cmd). Then go to project folder using command
 
 ```sh
-cd lara9inertia
+[cd project-template]
 ```
 
 3. Then install required files and libraries using 
@@ -68,7 +61,7 @@ B.  User -> User
     Email -> user@example.com
     Pass -> 1234
 
-Finally we are ready to run our project using this command 
+Finally we are ready to run our project using this command
 
 ```sh
 php artisan serve 
@@ -79,3 +72,18 @@ in one terminal and also run
 npm run watch 
 ```
  on another terminal for compiling js and css. 
+
+ ## Tools I used
+
+1. Vscode
+2. WAMP 3.2.6 [Better version of XAMPP]
+3. Git Bash [Terminal]
+4. MySQL Workbench 8
+5. PHP 8.1.0
+6. MySQL 8.0.27
+7. Apache 2.4.51
+
+### Disclaimer
+This is not mine, I just modified a little bit.
+
+## Credits to the OWNER ❤
