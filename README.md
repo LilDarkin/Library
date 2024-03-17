@@ -17,7 +17,7 @@ It is a Laravel 9 Vue3 Inertia JS based project template showing the basics of i
 2. Open terminal (bash/cmd). Then go to project folder using command
 
 ```sh
-[cd project-template]
+cd project-template
 ```
 
 3. Then install required files and libraries using 
