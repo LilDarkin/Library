@@ -10,6 +10,9 @@ class HomeController extends Controller
     //
     public function index()
     {
-        return inertia('LandingPage');
+        $user = auth()->user();
+        return inertia('LandingPage', [
+            'user' => $user,
+        ]);
     }
 }

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
+    'default' => env('FILESYSTEM_DISK', 'firebase'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,6 +29,13 @@ return [
     */
 
     'disks' => [
+
+        'firebase' => [
+            'driver' => 'google-cloud-storage',
+            'project_id' => 'library-e94c5',
+            'key_file' => storage_path('firebase-credentials.json'),
+            'bucket' => 'library-e94c5.appspot.com',
+        ],
 
         'local' => [
             'driver' => 'local',
