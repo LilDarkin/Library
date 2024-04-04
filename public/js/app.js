@@ -23952,14 +23952,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "file",
-    onChange: _cache[0] || (_cache[0] = function () {
-      return $options.uploadFile && $options.uploadFile.apply($options, arguments);
-    })
-  }, null, 32
-  /* HYDRATE_EVENTS */
-  )])])]);
+  , ["href"])]))])])]);
 }
 
 /***/ }),

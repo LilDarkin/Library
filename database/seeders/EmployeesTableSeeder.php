@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
-class StudentsTableSeeder extends Seeder
+class EmployeesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,34 +16,32 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
+        
         $uuids = json_decode(File::get(database_path('uuids.json')), true);
 
-        $students = [
+        $employee = [
             [
-                'user_uuid' => $uuids[0],
-                'student_no' => '20240001',
-                'name' => 'Student 1',
-                'email' => 'student1@example.com',
+                'user_uuid' => $uuids[2],
+                'student_no' => '20240003',
+                'name' => 'Teacher',
+                'email' => 'teacher@example.com',
                 'contact' => '123456789',
-                'department' => 'Computer Science',
-                'year' => '1',
+                'department' => 'BSIT',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'user_uuid' => $uuids[1],
-                'student_no' => '20240002',
-                'name' => 'Student 2',
-                'email' => 'student2@example.com',
+                'user_uuid' => $uuids[3],
+                'student_no' => '20240004',
+                'name' => 'Librarian',
+                'email' => 'librarian@example.com',
                 'contact' => '987654321',
-                'department' => 'Information Technology',
-                'year' => '2',
+                'department' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-
         ];
-        
-        DB::table('students')->insert($students);
+
+        DB::table('employees')->insert($employee);
     }
 }

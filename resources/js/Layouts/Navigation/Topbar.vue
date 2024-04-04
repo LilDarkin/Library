@@ -46,7 +46,7 @@
                     Login
                     </Link>
                 </div>
-                <input type="file" @change="uploadFile">
+                
             </div>
         </div>
     </nav>
