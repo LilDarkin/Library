@@ -71,7 +71,7 @@ class UserSeeder extends Seeder
                 'remember_token' => Str::random(10),
                 'role' => 3,
                 'student_no' => null,
-                'emp_no' => '20240003',
+                'emp_no' => '20240002',
                 'updated_at' => now(),
                 'user_id' => Str::uuid(),
             ],
