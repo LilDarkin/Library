@@ -17,9 +17,9 @@
 
                     <div v-if="$page.props.user"
                         class="hidden space-x-8 sm:flex sm:ml-10 transition duration-300 ease-in-out">
-                        <Link :href="route('posts.index')"
+                        <Link :href="route('home')"
                             class="inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">
-                        Posts
+                        Home
                         </Link>
                         <Link :href="route('pages.about')"
                             class="inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">

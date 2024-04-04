@@ -23,6 +23,9 @@ class User extends Authenticatable
         'password',
         'role',
         'active',
+        'student_no',
+        'emp_no',
+        'user_id',
     ];
 
     /**
@@ -44,12 +47,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
-    public function getPermissionsAttribute()
+    public function student()
     {
-        return [
-            'posts_view' => in_array($this->id, [1,2]),
-            'posts_manage' => $this->id == 1,
-        ];
+        return $this->hasOne(Student::class, 'user_id', 'user_id');
     }
 }

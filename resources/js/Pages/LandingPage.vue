@@ -31,8 +31,7 @@ export default {
         user: Object,
     },
     setup(props) {
-        console.log("sheesh")
-        console.log(props.user)
+
     }
 };
 </script>

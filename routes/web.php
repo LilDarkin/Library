@@ -16,11 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', HomeController::class);
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('posts', PostController::class);
     Route::inertia('pages/about', 'About')->name('pages.about');
 });
 
