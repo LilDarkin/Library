@@ -1,4 +1,5 @@
 ### Laravel [Backend] | Vue [Frontend] | Inertia | Tailwind [CSS]
+-----------------------------------------------------------------------------------------------------------
 
 ## About
 
@@ -11,7 +12,8 @@ It is a Laravel 9 Vue3 Inertia JS based project template showing the basics of i
 5. laravel/breeze
 6. Authentication
 7. Authorization
-
+8. 
+-----------------------------------------------------------------------------------------------------------
 ## Getting Started Step by Step
 1. Clone the project file using git clone https://github.com/LilDarkin/Project-Template.git
 2. Open terminal (bash/cmd). Then go to project folder using command
@@ -52,14 +54,21 @@ yarn install && yarn run dev
 php artisan migrate:fresh --seed
 ```
 
-After completing the migration and seeding of db, you will have 2 user ready for login in this project. 
-A.  Admin -> Admin
-    Email -> admin@example.com
-    Pass -> 1234
-
-B.  User -> User
-    Email -> user@example.com
-    Pass -> 1234
+## After completing the migration and seeding of db, you will have 5 user ready for login in this project. 
+# Admin
+Employee No -> 001
+Pass        -> 123
+# Students
+Student No  -> 20240001 / 20240002
+Pass        -> 123
+# Teacher
+Employee No  -> 20240003
+Pass         -> 123
+# Librarian
+Employee No  -> 20240004
+Pass         -> 123
+# If you want to create a user, use admin account > Users > Create User
+-----------------------------------------------------------------------------------------------------------
 
 Finally we are ready to run our project using this command
 
@@ -72,6 +81,7 @@ in one terminal and also run
 npm run watch 
 ```
  on another terminal for compiling js and css. 
+-----------------------------------------------------------------------------------------------------------
 
  ## Tools I used
 
@@ -82,8 +92,3 @@ npm run watch
 5. PHP 8.1.0
 6. MySQL 8.0.27
 7. Apache 2.4.51
-
-### Disclaimer
-This is not mine, I just modified a little bit.
-
-## Credits to the OWNER ❤
