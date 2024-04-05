@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BooksController;
+use App\Http\Controllers\BorrowedBooksController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +21,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::inertia('pages/about', 'About')->name('pages.about');
+    Route::inertia('/about', 'About')->name('pages.about');
+
+    Route::group(['prefix' => 'users'], function () {
+        Route::get('/', [UsersController::class, 'index'])->name('users');
+        # Route::get('/{post}', [UsersController::class, 'show'])->name('posts.show');
+    });
+
+    Route::group(['prefix' => 'books'], function () {
+        Route::get('/', [BooksController::class, 'index'])->name('books');
+    });
+
+    Route::group(['prefix' => 'borrowed-books'], function () {
+        Route::get('/', [BorrowedBooksController::class, 'index'])->name('borrowed-books');
+    });
 });
 
 Route::inertia('login', 'Auth/Login')->name('login');

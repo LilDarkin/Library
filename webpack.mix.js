@@ -18,4 +18,4 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
         require('autoprefixer'),
     ])
-    .copy('resources/assets/logo.png', 'public/assets');;
+    .copy('resources/assets/logo.svg', 'public/assets');;

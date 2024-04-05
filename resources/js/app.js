@@ -13,7 +13,9 @@ createInertiaApp({
       .mixin({ methods: { route } })
       .mount(el)
   },
-})
+}).then(() => {
+  document.getElementById('app').removeAttribute('data-page');
+});
 
 
 InertiaProgress.init({

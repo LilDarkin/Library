@@ -27,9 +27,7 @@ export default {
         Head,
         AppLayout,
     },
-    props: {
-        user: Object,
-    },
+
     setup(props) {
 
     }

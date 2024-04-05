@@ -38,6 +38,19 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public const ROLES = [
+        1 => 'STUDENT',
+        2 => 'TEACHER',
+        3 => 'LIBRARIAN',
+    ];
+
+    public const STATUSES = [
+        1 => 'ACTIVE',
+        0 => 'INACTIVE',
+    ];
+
+
+
     /**
      * The attributes that should be cast.
      *
