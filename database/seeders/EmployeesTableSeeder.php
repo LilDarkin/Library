@@ -22,7 +22,7 @@ class EmployeesTableSeeder extends Seeder
         $employee = [
             [
                 'user_id' => $uuids[2],
-                'emp_no' => '20240003',
+                'emp_no' => '20243',
                 'name' => 'Teacher',
                 'email' => 'teacher@example.com',
                 'contact' => '123456789',
@@ -32,7 +32,7 @@ class EmployeesTableSeeder extends Seeder
             ],
             [
                 'user_id' => $uuids[3],
-                'enp_no' => '20240004',
+                'emp_no' => '20244',
                 'name' => 'Librarian',
                 'email' => 'librarian@example.com',
                 'contact' => '987654321',

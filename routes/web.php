@@ -25,7 +25,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'users'], function () {
         Route::get('/', [UsersController::class, 'index'])->name('users');
-        # Route::get('/{post}', [UsersController::class, 'show'])->name('posts.show');
+        Route::put('api/{id}', [UsersController::class, 'edit'])->name('edit.user');
+        Route::delete('api/{id}', [UsersController::class, 'destroy'])->name('delete.user');
+        Route::post('api/add', [UsersController::class, 'store'])->name('add.user');
     });
 
     Route::group(['prefix' => 'books'], function () {

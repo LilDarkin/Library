@@ -11,7 +11,6 @@ class Employee extends Model
 
     protected $fillable = [
         'user_id',
-        'emp_no',
         'name',
         'email',
         'contact',
@@ -20,6 +19,6 @@ class Employee extends Model
     
     public function user()
     {
-        return $this->hasOne(User::class, 'user_id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 }

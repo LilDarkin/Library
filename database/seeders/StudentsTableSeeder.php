@@ -21,7 +21,7 @@ class StudentsTableSeeder extends Seeder
         $students = [
             [
                 'user_id' => $uuids[0],
-                'student_no' => '20240001',
+                'student_no' => '20241',
                 'name' => 'Student 1',
                 'email' => 'student1@example.com',
                 'contact' => '123456789',
@@ -32,7 +32,7 @@ class StudentsTableSeeder extends Seeder
             ],
             [
                 'user_id' => $uuids[1],
-                'student_no' => '20240002',
+                'student_no' => '20242',
                 'name' => 'Student 2',
                 'email' => 'student2@example.com',
                 'contact' => '987654321',
