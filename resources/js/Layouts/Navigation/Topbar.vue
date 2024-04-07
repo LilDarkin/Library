@@ -101,23 +101,6 @@ export default {
         toggleOptions() {
             this.options = !this.options;
         },
-        uploadFile(event) {
-            const file = event.target.files[0];
-            const formData = new FormData();
-            formData.append('file', file);
-
-            axios.post('/api/upload', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
-                .then(response => {
-                    console.log('File uploaded:', response.data);
-                })
-                .catch(error => {
-                    console.error('Error uploading file:', error);
-                });
-        }
     }
 }
 </script>

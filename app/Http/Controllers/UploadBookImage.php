@@ -7,18 +7,16 @@ use Illuminate\Support\Facades\Storage;
 class UploadBookImage extends Controller
 {
     public function uploadFile(Request $request) {
-        // Validate the request
+        
         $request->validate([
-            'file' => 'required|file',
+            'file' => 'required|image|max:2048', 
         ]);
 
-        // Retrieve the file from the request
-        $file = $request->file('file');
+        if ($request->file('file')->isValid()) {
+            $path = $request->file('file')->store('uploads', 'books');
+            return response()->json(['path' => 'public/' . $path]);
+        }
 
-        // Store the file in the local storage
-        $path = Storage::disk('local')->put('books/images/', $file);
-
-        // Optionally, you can return the path of the uploaded file
-        return response()->json(['path' => $path]);
+        return response()->json(['message' => ['File could not be uploaded.']], 500);
     }
 }

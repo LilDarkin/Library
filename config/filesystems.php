@@ -36,6 +36,13 @@ return [
             'throw' => false,
         ],
 
+        'books' => [
+            'driver' => 'local',
+            'root' => 'public',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
