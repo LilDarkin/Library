@@ -76,7 +76,7 @@
                     <div v-for="book in filteredBooks" :key="book" class="flex flex-col items-center">
                         <h3 class="select-none mb-2 text-lg font-semibold text-gray-900">{{ book.title }}</h3>
                         <img class="w-64 h-64 rounded-lg transition-transform duration-300 transform hover:scale-110 cursor-pointer"
-                           @click="viewBook(book)" :src="book.image_path" alt="">
+                            @click="viewBook(book)" :src="book.image_path" alt="">
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                     <div v-for="book in filteredBooks" :key="book" class="flex flex-col items-center">
                         <h3 class="select-none mb-2 text-lg font-semibold text-gray-900">{{ book.title }}</h3>
                         <img class="w-64 h-64 rounded-lg transition-transform duration-300 transform hover:scale-110 cursor-pointer"
-                           @click="viewBook(book)" :src="book.image_path" alt="">
+                            @click="viewBook(book)" :src="book.image_path" alt="">
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                                         </svg>
                                         <span
                                             class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{{
-                                            action_status }}</span>
+                                            action_status}}</span>
                                     </div>
                                 </li>
                             </ol>
@@ -160,6 +160,7 @@
                             <label for="title" class="block text-sm font-semibold leading-6 text-black">Title</label>
                             <div class="mt-2.5">
                                 <input type="text" autocomplete="title" v-model="addData.title" required
+                                    :readonly="permission !== true" :class="{ 'select-none': permission !== true }"
                                     class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm shadow-blue-500 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6">
                             </div>
                         </div>
@@ -167,16 +168,18 @@
                             <label for="author" class="block text-sm font-semibold leading-6 text-black">Author</label>
                             <div class="mt-2.5">
                                 <input type="text" autocomplete="author" v-model="addData.author" required
+                                    :readonly="permission !== true" :class="{ 'select-none': permission !== true }"
                                     class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset shadow-blue-500 ring-blue-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6">
                             </div>
                         </div>
                         <div class="sm:col-span-2">
                             <label for="genre" class="block text-sm font-semibold leading-6 text-black">Genre</label>
                             <select id="genre" v-model="addData.genre" required
+                                :class="{ 'select-none': permission !== true }"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                 <option value="thriller" selected hidden>Thriller</option>
-                                <option value='thriller'>Thriller</option>
-                                <option value='fiction'>Fiction</option>
+                                <option value='thriller' :hidden="permission !== true">Thriller</option>
+                                <option value='fiction' :hidden="permission !== true">Fiction</option>
                             </select>
                         </div>
                         <div class="sm:col-span-2">
@@ -184,6 +187,7 @@
                                 class="block text-sm font-semibold leading-6 text-green-600">Description</label>
                             <div class="mt-2.5">
                                 <textarea v-model="addData.description" rows="7" required
+                                    :readonly="permission !== true" :class="{ 'select-none': permission !== true }"
                                     class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                             </div>
                         </div>
@@ -192,16 +196,18 @@
                                 Cover</label>
                             <div class="mt-2.5 flex justify-center">
                                 <div class="flex items-center justify-center w-full">
-                                    <label for="dropzone-file"
+                                    <img v-show="addData.image_path !== null && permission !== true"
+                                        :src="addData.image_path" class="w-64 h-64 mb-4 rounded-lg object-cover"
+                                        alt="Selected Image">
+                                    <label v-show="permission === true" for="dropzone-file"
                                         class="flex flex-col items-center justify-center w-full h-30 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                                         <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                             <!-- Display the selected image -->
-                                            <img v-if="addData.image_path !== '' && action !== 'View'"
-                                                :src="addData.image_path" class="w-32 h-32 mb-4 rounded-lg object-cover"
-                                                alt="Selected Image">
-                                            <svg v-else class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
-                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 20 16">
+                                            <img v-show="addData.image_path !== null" :src="addData.image_path"
+                                                class="w-32 h-32 mb-4 rounded-lg object-cover" alt="Selected Image">
+                                            <svg v-show="addData.image_path === null"
+                                                class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                                 <path stroke="currentColor" stroke-linecap="round"
                                                     stroke-linejoin="round" stroke-width="2"
                                                     d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
@@ -221,19 +227,23 @@
                     <!-- Modal footer -->
                     <div
                         class="flex justify-between items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                        <button v-show="action !== 'View'" @click="cancelModal()" type="button"
+                        <button v-show="action !== 'View' || permission !== true" @click="cancelModal()" type="button"
                             class="min-w-[9rem] py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                             Cancel
                         </button>
-                        <button v-show="action === 'View'" type="button" @click="deleteBook()"
+                        <button v-show="action === 'View' && permission === true" type="button" @click="deleteBook()"
                             class="text-white min-w-[9rem] bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Delete
                         </button>
-                        <button v-show="action === 'View'" type="button" @click="editBook()"
+                        <button v-show="action === 'View'" type="button" @click="borrowBook()"
+                            class="text-white min-w-[9rem] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Borrow
+                        </button>
+                        <button v-show="action === 'View' && permission === true" type="button" @click="editBook()"
                             class="text-white min-w-[9rem] bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Edit
                         </button>
-                        <button v-show="action !== 'View'" type="button" @click="addBook()"
+                        <button v-show="action !== 'View' && permission === true" type="button" @click="addBook()"
                             class="text-white min-w-[9rem] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Add
                         </button>
@@ -249,6 +259,7 @@ import { Head } from '@inertiajs/inertia-vue3'
 import AppLayout from '../../Layouts/App.vue'
 import Swal from 'sweetalert2'
 import axios from 'axios';
+import { usePage } from '@inertiajs/inertia-vue3';
 
 export default {
     data() {
@@ -275,14 +286,39 @@ export default {
     props: {
         books: Array,
         permission: Boolean,
+        user: Object,
     },
-    setup(props) {
-
+    setup() {
     },
     created() {
         this.filteredBooks = this.books
     },
     methods: {
+        borrowBook() {
+            console.log(this.selectedBook[0].id)
+            const data = {
+                book_id: this.selectedBook[0].id,
+                user_id: this.user.student_no ?? this.user.emp_no,
+            }
+
+            Swal.fire({
+                title: "Do you want to borrow this book?",
+                showCancelButton: true,
+                confirmButtonText: "Borrow",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.post(route('add.borrowed-book'), data)
+                        .then(response => {
+                        Swal.fire("Yehey!", response.data.message, "success").then(() => {
+                            window.location.reload();
+                        });
+                    })
+                        .catch(error => {
+                            Swal.fire('Something went wrong', error.message, "error");
+                        });
+                }
+            });
+        },
         deleteBook() {
             Swal.fire({
                 title: "Are you sure?",
@@ -338,9 +374,8 @@ export default {
                 author: this.selectedBook[0].author,
                 genre: this.selectedBook[0].genre,
                 description: this.selectedBook[0].description,
-                image_path: this.selectedBook[0].image,
+                image_path: this.selectedBook[0].image_path,
             };
-
             const options = {
                 placement: 'bottom-right',
                 backdrop: 'static',
@@ -361,7 +396,7 @@ export default {
             formData.append('description', this.addData.description);
 
             Swal.fire({
-                title: "Do you want to save the changes?",
+                title: "Do you want to add this book?",
                 showCancelButton: true,
                 confirmButtonText: "Add",
             }).then((result) => {
@@ -389,11 +424,10 @@ export default {
                 return '';
             }
         },
-        handleFileChange(event) {
-            const selectedFile = event.target.files[0];
-        },
         add_book_modal() {
-            this.selectedBook = [];
+            this.selectedBook = null;
+            this.addData = [];
+            this.addData.image_path = null;
             this.action = 'Add'
             this.action_status = 'New Book'
             const options = {
@@ -444,7 +478,6 @@ export default {
             })
                 .then(response => {
                     this.addData.image_path = response.data.path;
-                    console.log(response.data.path);
                 })
                 .catch(error => {
                     console.error('Error uploading file:', error);

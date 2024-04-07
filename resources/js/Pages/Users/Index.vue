@@ -382,9 +382,9 @@ export default {
         },
         addUser() {
             Swal.fire({
-                title: "Do you want to save the changes?",
+                title: "Do you want to add this user?",
                 showCancelButton: true,
-                confirmButtonText: "Save",
+                confirmButtonText: "Add",
             }).then((result) => {
                 if (result.isConfirmed) {
                     axios.post(route('add.user'), this.addData)
@@ -476,7 +476,6 @@ export default {
                         });
                 }
             });
-
         }
     }
 }

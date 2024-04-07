@@ -39,6 +39,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'borrowed-books'], function () {
         Route::get('/', [BorrowedBooksController::class, 'index'])->name('borrowed-books');
+        Route::get('api/{id}', [BorrowedBooksController::class, 'view'])->name('view.borrowed-book');
+        Route::delete('api/{id}', [BorrowedBooksController::class, 'destroy'])->name('delete.borrowed-book');
+        Route::put('api/{id}', [BorrowedBooksController::class, 'edit'])->name('edit.borrowed-book');
+        Route::post('api/add', [BorrowedBooksController::class, 'store'])->name('add.borrowed-book');
     });
 });
 

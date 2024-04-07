@@ -21,6 +21,16 @@ class BorrowedBooks extends Model
         6 => 'MISSING',
     ];
 
+    public const STATUS = [
+        'PENDING' => 0,
+        'BORROWED' => 1,
+        'RETURNED' => 2,
+        'OVERDUE' => 3,
+        'LOST' => 4,
+        'DAMAGED' => 5,
+        'MISSING' => 6
+    ];
+    
     public function book()
     {
         return $this->belongsTo(Books::class);

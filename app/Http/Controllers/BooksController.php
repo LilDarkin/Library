@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Books;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -22,6 +23,7 @@ class BooksController extends Controller
         $books = Books::all();
 
         return Inertia::render('Books/Index', [
+            'user' => Auth::user(),
             'books' => $books,
             'permission' => $permission
         ]);
@@ -59,6 +61,7 @@ class BooksController extends Controller
 
     public function destroy($id) {
         $book = Books::where('id', $id)->first();
+        File::delete(public_path($book->image_path));
         $book->delete();
         return response()->json(['message' => 'Book deleted successfully!']);
     }
